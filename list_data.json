@@ -1,22 +1,60 @@
 {
-	"movies": [
+	"kdramas": [
 		{
-			"Title": "Lost In Translation",
-			"Director": "Sofia Coppola",
-			"Rating": "R",
-			"Year": "2003"
+			"Title": "Lovely Runner",
+			"Director": ["Yoon Jong-ho", "Kim Tae-yeop"],
+			"Writer": ["Kim Bbang (novel)", "Lee Si-Eun"],
+			"Genre": ["Time Slip", "Romantic comedy", "Fantasy"],
+			"Year": "2024"
 		},
 		{
-			"Title": "Casino Royale",
-			"Director": "Martin Campbell",
-			"Rating": "PG-13",
-			"Year": "2006"
+			"Title": "Guardian: The Lonely and Great God",
+			"Director": ["Lee Eung-bok", "Yoon Jong-ho"],
+			"Writer": "Kim Eun-sook",
+			"Genre": ["Romantic comedy", "Fantasy", "Drama"],
+			"Year": "2016"
 		},
 		{
-			"Title": "The Dark Knight",
-			"Director": "Christopher Nolan",
-			"Rating": "PG-13",
-			"Year": "2008"
+			"Title": "When Life Gives You Tangerines",
+			"Director": "Kim Won-seok",
+			"Writer": "Lim Sang-choon",
+			"Genre": ["Romance", "Slice-of-life"],
+			"Year": "2025"
+		},
+		{
+			"Title": "While You Were Sleeping",
+			"Director": "Oh Chung-hwan",
+			"Writer": "Park Hye-ryun",
+			"Genre": ["Romantic comedy", "Fantasy", "Legal drama", "Thriller"],
+			"Year": "2017"
+		},
+		{
+			"Title": "Alchemy of Souls",
+			"Director": "Park Joon-hwa",
+			"Writer": ["Hong Jung-eun", "Hong Mi-ran"],
+			"Genre": ["Romance", "Fantasy", "Period drama", "Action"],
+			"Year": "2022"
+		},
+		{
+			"Title": "Twinkling Watermelon",
+			"Director": ["Son Jeong-hyeon", "Yoo Beom-sang"],
+			"Writer": "Jin Soo-wan",
+			"Genre": ["Romance", "Time travel", "Fantasy", "Coming-of-age"],
+			"Year": "2023"
+		},
+				{
+			"Title": "The Trauma Code: Heroes on Call",
+			"Director": "Lee Do-yoon",
+			"Writer": "Choi Tae-kang",
+			"Genre": ["Medical", "Comedy"],
+			"Year": "2023"
+		},
+		{
+			"Title": "W: Two Worlds",
+			"Director": "Jung Dae-yoon",
+			"Writer": "Song Jae-jeong",
+			"Genre": ["Romance", "Fantasy", "Thriller", "Comedy", "Action"],
+			"Year": "2016"
 		}
 	]
 }
