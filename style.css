@@ -299,6 +299,7 @@ figure {
 img,
 svg {
   vertical-align: middle;
+  margin: 20px;
 }
 
 table {
@@ -603,6 +604,11 @@ progress {
   height: auto;
 }
 
+.resize {
+  width: 300px;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -624,6 +630,10 @@ progress {
 .figure-caption {
   font-size: 0.875em;
   color: #6c757d;
+}
+
+.textpara {
+  padding: 10px;
 }
 
 .container,
@@ -1176,7 +1186,8 @@ progress {
 
   .col-md-6 {
     flex: 0 0 auto;
-    width: 50%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .col-md-7 {
