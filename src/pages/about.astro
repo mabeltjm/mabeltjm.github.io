@@ -1,0 +1,504 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skills = [
+  { category: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'R'] },
+  { category: 'Web', items: ['Astro', 'React', 'Node.js', 'HTML & CSS'] },
+  { category: 'Data & ML', items: ['pandas', 'NumPy', 'scikit-learn', 'Jupyter'] },
+  { category: 'Tools', items: ['Git', 'VS Code', 'Linux', 'Figma'] },
+];
+---
+
+<Layout
+  title="About — Mabel"
+  description="Hi, I'm Mabel — a developer and student interested in data, software, and the web."
+>
+  <div class="about-page">
+
+    <!-- Intro split -->
+    <section class="intro">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-left reveal">
+            <div class="intro-eyebrow">
+              <span class="eyebrow-line"></span>
+              <span>§ 00 — About</span>
+            </div>
+            <h1 class="intro-name"><em>Mabel.</em></h1>
+            <p class="intro-location">Berkeley, California</p>
+          </div>
+
+          <div class="intro-right reveal reveal-d2">
+            <p class="intro-lead">
+              Developer, student, and curious person.
+            </p>
+            <p>
+              I'm studying Information Science at UC Berkeley, where I explore the
+              intersection of data, design, and human behavior. Outside class, I build
+              things with Python and JavaScript, write about what I'm learning, and try
+              to make software that actually makes sense to the people using it.
+            </p>
+            <p>
+              I care about clear writing, thoughtful design, and tools that get out of
+              your way.
+            </p>
+            <div class="intro-cta">
+              <a href="/blog" class="btn btn-primary"><span>Read the Blog</span></a>
+              <a href="/projects" class="btn btn-outline"><span>See Projects</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">§ 01 — Skills</span>
+        </div>
+        <div class="skills-grid reveal reveal-d1">
+          {skills.map(group => (
+            <div class="skill-col">
+              <h3 class="skill-cat">{group.category}</h3>
+              <ul class="skill-list">
+                {group.items.map(item => <li>{item}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Timeline -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">§ 02 — Education</span>
+        </div>
+
+        <div class="timeline">
+
+          <!-- UC Berkeley -->
+          <div class="tl-item reveal reveal-d1">
+            <div class="tl-left">
+              <div class="tl-node tl-node--ongoing">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-connector"></div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-year">Aug 2025 — May 2027</span>
+              <strong class="tl-title">Masters in Information Management & Systems</strong>
+              <p class="tl-place">University of California, Berkeley · Berkeley, CA</p>
+              <p class="tl-desc">Specialising in Product Management and HCI. Coursework spans user research, data systems, design thinking, and technology strategy.</p>
+              <div class="tl-tags">
+                <span class="tag">Product Management</span>
+                <span class="tag">HCI</span>
+                <span class="tag">UX Research</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- University of London -->
+          <div class="tl-item reveal reveal-d2">
+            <div class="tl-left">
+              <div class="tl-node">
+                <span class="tl-dot"></span>
+              </div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-year">Sep 2017 — May 2020</span>
+              <strong class="tl-title">BSc Computing & Information Systems</strong>
+              <p class="tl-place">University of London · Singapore · First Class Honours</p>
+              <p class="tl-desc">Graduated with First Class Honours. Studied software engineering, databases, systems design, and information management. Built a strong foundation in computing that underpins everything I do today.</p>
+              <div class="tl-tags">
+                <span class="tag">First Class Honours</span>
+                <span class="tag">Software Engineering</span>
+                <span class="tag">Systems Design</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Work History Timeline -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">§ 03 — Work History</span>
+        </div>
+
+        <div class="timeline">
+
+          <!-- EY Digital Product Lead -->
+          <div class="tl-item reveal reveal-d1">
+            <div class="tl-left">
+              <div class="tl-node">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-connector"></div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-year">Sep 2022 — Jun 2025</span>
+              <strong class="tl-title">Digital Product Lead</strong>
+              <p class="tl-place">Ernst & Young Advisory · Singapore</p>
+              <p class="tl-desc">Drove a 6-month global trade-in-for-credits pilot for a top Korean electronics company across 3 regions. Built and executed the roadmap for a $1.5M Singapore government digital platform, improving citizen engagement and streamlining workflows. Collaborated with UX researchers and data analysts to translate insights into features, increasing engagement by 30% and reducing bounce rate by 10%.</p>
+              <div class="tl-tags">
+                <span class="tag">Product Strategy</span>
+                <span class="tag">Roadmapping</span>
+                <span class="tag">Agile</span>
+                <span class="tag">Stakeholder Mgmt</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EY Digital Content & UX Associate -->
+          <div class="tl-item reveal reveal-d2">
+            <div class="tl-left">
+              <div class="tl-node">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-connector"></div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-year">Aug 2020 — Sep 2022</span>
+              <strong class="tl-title">Digital Content & UX Associate</strong>
+              <p class="tl-place">Ernst & Young Advisory · Singapore</p>
+              <p class="tl-desc">Partnered with design and engineering teams to enhance CMS usability for enterprise websites. Conducted training sessions for 20+ clients, improving platform proficiency by 30%. Led content migration and QA for 3 major website revamps with zero downtime.</p>
+              <div class="tl-tags">
+                <span class="tag">UX Design</span>
+                <span class="tag">CMS</span>
+                <span class="tag">Content Strategy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Assembly UX -->
+          <div class="tl-item reveal reveal-d3">
+            <div class="tl-left">
+              <div class="tl-node">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-connector"></div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-year">2021</span>
+              <strong class="tl-title">UX Designer</strong>
+              <p class="tl-place">General Assembly · Singapore</p>
+              <p class="tl-desc">Revamped brand identity and website for a Malaysian social enterprise, achieving a 251% improvement in SUS score through user research and iterative design. Redesigned a national immigration agency's website, resulting in a 300% faster task completion rate.</p>
+              <div class="tl-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">User Research</span>
+                <span class="tag">Usability Testing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maybank -->
+          <div class="tl-item reveal reveal-d4">
+            <div class="tl-left">
+              <div class="tl-node">
+                <span class="tl-dot"></span>
+              </div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-year">Jun 2019 — Aug 2019</span>
+              <strong class="tl-title">Summer Digital Product Analyst</strong>
+              <p class="tl-place">Maybank · Singapore · Wealth Management</p>
+              <p class="tl-desc">Conducted user and market research to guide new digital wealth product concepts. Contributed to product positioning and campaign strategy for online wealth tools and dashboards.</p>
+              <div class="tl-tags">
+                <span class="tag">Product Research</span>
+                <span class="tag">Fintech</span>
+                <span class="tag">Market Analysis</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
+<style>
+  .about-page { padding-bottom: 5rem; }
+
+  /* ── Intro ──────────────────────────── */
+  .intro {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .intro-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--rose);
+    flex-shrink: 0;
+  }
+
+  .intro-name {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .intro-name em { font-style: italic; }
+
+  .intro-location {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .intro-lead {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+    line-height: 1.35;
+  }
+
+  .intro-right p {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .intro-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+  }
+
+  /* ── Skills ─────────────────────────── */
+  .skills-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .section-head { margin-bottom: 2rem; }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border-soft);
+  }
+
+  .skill-col {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border-soft);
+  }
+
+  .skill-col:last-child { border-right: none; }
+
+  .skill-cat {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-list li {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--ink-2);
+  }
+
+  /* ── Timeline ───────────────────────── */
+  .timeline-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  /* Vertical track (dot + line) */
+  .tl-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.2rem;
+  }
+
+  .tl-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-soft);
+    background: var(--bg);
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .tl-item:hover .tl-node {
+    border-color: var(--rose);
+    background: var(--rose-soft);
+  }
+
+  .tl-dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink-3);
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .tl-item:hover .tl-dot {
+    background: var(--rose);
+    transform: scale(1.2);
+  }
+
+  /* Pulsing dot for "ongoing" */
+  .tl-node--ongoing .tl-dot {
+    background: var(--rose);
+    animation: tl-pulse 2.2s ease-in-out infinite;
+  }
+
+  @keyframes tl-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.45; transform: scale(0.75); }
+  }
+
+  /* The vertical connector line between items */
+  .tl-connector {
+    width: 1px;
+    flex: 1;
+    min-height: 2rem;
+    background: var(--border-soft);
+    margin: 4px 0;
+  }
+
+  /* Body */
+  .tl-body {
+    padding-bottom: 2.5rem;
+    padding-top: 0.35rem;
+  }
+
+  .tl-year {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--rose);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .tl-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  .tl-place {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ink-3);
+    margin-bottom: 0.75rem;
+  }
+
+  .tl-desc {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 52ch;
+  }
+
+  .tl-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── Responsive ─────────────────────── */
+  @media (max-width: 700px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .skill-col:nth-child(2) { border-right: none; }
+    .skill-col:nth-child(1),
+    .skill-col:nth-child(2) { border-bottom: 1px solid var(--border-soft); }
+    .tl-item { grid-template-columns: 28px 1fr; gap: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-col { border-right: none; border-bottom: 1px solid var(--border-soft); }
+    .skill-col:last-child { border-bottom: none; }
+  }
+</style>

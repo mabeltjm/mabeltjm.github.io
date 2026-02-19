@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    name: 'This Website',
+    description: 'Personal site and blog built with Astro 5. Content collections, editorial design, zero JS frameworks.',
+    tags: ['Astro', 'TypeScript', 'CSS'],
+    githubUrl: 'https://github.com',
+  },
+  {
+    name: 'Data Explorer',
+    description: 'Python tool for quickly exploring and visualizing CSV datasets. Summary statistics, histograms, and correlation matrices.',
+    tags: ['Python', 'pandas', 'matplotlib'],
+    githubUrl: 'https://github.com',
+  },
+  {
+    name: 'Recipe Manager',
+    description: 'Web app to organize, tag, and search personal recipes. React + local JSON backend. Ingredient-based search.',
+    tags: ['React', 'JavaScript', 'CSS'],
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com',
+  },
+  {
+    name: 'Sentiment Analyzer',
+    description: 'ML model classifying text sentiment with scikit-learn, trained on product reviews with ~88% test accuracy.',
+    tags: ['Python', 'scikit-learn', 'NLP'],
+    githubUrl: 'https://github.com',
+  },
+  {
+    name: 'CLI Task Tracker',
+    description: 'Minimal command-line task manager with priorities, due dates, and JSON persistence.',
+    tags: ['Python', 'CLI'],
+    githubUrl: 'https://github.com',
+  },
+  {
+    name: 'Weather Dashboard',
+    description: 'Node.js app that pulls weather data from a public API and renders a 7-day ASCII forecast in the terminal.',
+    tags: ['Node.js', 'API', 'CLI'],
+    githubUrl: 'https://github.com',
+  },
+];
+---
+
+<Layout
+  title="Projects — Mabel"
+  description="A selection of personal projects — web apps, data tools, experiments."
+>
+  <div class="container page">
+    <div class="page-head reveal">
+      <div class="page-eyebrow">
+        <span class="eyebrow-mark">§ Selected Work</span>
+        <span class="eyebrow-count">{projects.length} projects</span>
+      </div>
+      <h1 class="page-title"><em>Projects.</em></h1>
+      <p class="page-sub">Things I've built — side projects, experiments, learning exercises.</p>
+    </div>
+
+    <div class="projects-grid reveal reveal-d1">
+      {projects.map((project, i) => (
+        <ProjectCard
+          name={project.name}
+          description={project.description}
+          tags={project.tags}
+          liveUrl={project.liveUrl}
+          githubUrl={project.githubUrl}
+          index={i}
+        />
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .page-head { margin-bottom: 3rem; }
+
+  .page-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .eyebrow-mark {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+  }
+
+  .eyebrow-count {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .page-sub {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 50ch;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>

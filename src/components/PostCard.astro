@@ -1,0 +1,166 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, slug, tags = [] } = Astro.props;
+
+const dateStr = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="post-row">
+  <div class="post-date-col">
+    <time datetime={pubDate.toISOString()}>{dateStr}</time>
+  </div>
+
+  <div class="post-main">
+    <h2 class="post-title">
+      <a href={`/blog/${slug}`}>{title}</a>
+    </h2>
+    <p class="post-desc">{description}</p>
+
+    {tags.length > 0 && (
+      <div class="post-tags">
+        {tags.map(tag => <span class="tag">{tag}</span>)}
+      </div>
+    )}
+  </div>
+
+  <div class="post-caret" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17L17 7M17 7H7M17 7v10"/>
+    </svg>
+  </div>
+</article>
+
+<style>
+  .post-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 28px;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border-soft);
+    position: relative;
+    transition: background 0.35s ease;
+    margin: 0 -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .post-row::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rose-tint);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .post-row:hover::before { opacity: 1; }
+
+  /* Date */
+  .post-date-col {
+    padding-top: 0.35rem;
+  }
+
+  time {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    display: block;
+    line-height: 1.5;
+  }
+
+  /* Content */
+  .post-main { position: relative; z-index: 1; }
+
+  .post-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-title a {
+    color: var(--ink);
+    text-decoration: none;
+    background-image: linear-gradient(var(--rose), var(--rose));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease, color 0.2s ease;
+  }
+
+  .post-row:hover .post-title a {
+    background-size: 100% 1px;
+    color: var(--ink);
+  }
+
+  .post-desc {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  /* Arrow */
+  .post-caret {
+    padding-top: 0.3rem;
+    color: var(--ink-3);
+    transition: color 0.2s ease, transform 0.25s var(--ease-out);
+    position: relative;
+    z-index: 1;
+  }
+
+  .post-row:hover .post-caret {
+    color: var(--rose);
+    transform: translate(3px, -3px);
+  }
+
+  @media (max-width: 600px) {
+    .post-row {
+      grid-template-columns: 1fr 24px;
+      grid-template-rows: auto auto;
+      margin: 0 -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .post-date-col {
+      grid-column: 1;
+      grid-row: 1;
+      padding-top: 0;
+    }
+
+    .post-main {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    .post-caret {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+    }
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+}
+
+const { title, description, pubDate, tags = [] } = Astro.props;
+
+const dateStr = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={`${title} — Mabel`} description={description}>
+  <div class="post-page">
+    <div class="post-masthead">
+      <div class="container">
+        <a href="/blog" class="back-link">← All writing</a>
+
+        <div class="post-kicker">
+          <time datetime={pubDate.toISOString()}>{dateStr}</time>
+          {tags.length > 0 && (
+            <div class="post-tag-list">
+              {tags.map(tag => <span class="tag">{tag}</span>)}
+            </div>
+          )}
+        </div>
+
+        <h1 class="post-title reveal">{title}</h1>
+        <p class="post-dek reveal reveal-d1">{description}</p>
+      </div>
+    </div>
+
+    <div class="post-divider"></div>
+
+    <div class="container post-body reveal reveal-d2">
+      <article class="prose">
+        <slot />
+      </article>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .post-page {
+    padding-bottom: 6rem;
+  }
+
+  .post-masthead {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .back-link {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover { color: var(--rose); }
+
+  .post-kicker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  time {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+
+  .post-tag-list {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .post-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    max-width: 18ch;
+  }
+
+  .post-dek {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .post-divider {
+    height: 1px;
+    background: var(--border-soft);
+    max-width: calc(var(--content-width) - 0rem);
+    margin: 0 auto;
+    width: calc(100% - 4rem);
+  }
+
+  .post-body {
+    padding-top: 3.5rem;
+  }
+</style>

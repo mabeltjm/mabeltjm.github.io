@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout
+  title="Writing — Mabel"
+  description="Articles and notes on software, data, and things I'm learning."
+>
+  <div class="container page">
+    <div class="page-head reveal">
+      <div class="page-eyebrow">
+        <span class="eyebrow-mark">§ Writing</span>
+        <span class="eyebrow-count">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</span>
+      </div>
+      <h1 class="page-title"><em>Writing.</em></h1>
+      <p class="page-sub">Notes on code, data, and whatever else catches my attention.</p>
+    </div>
+
+    {posts.length === 0 ? (
+      <p class="empty">No posts yet — check back soon.</p>
+    ) : (
+      <div class="post-list">
+        {posts.map((post, i) => (
+          <div class={`reveal reveal-d${Math.min(i + 1, 4)}`}>
+            <PostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.slug}
+              tags={post.data.tags}
+            />
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .page-head {
+    margin-bottom: 3rem;
+  }
+
+  .page-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .eyebrow-mark {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+  }
+
+  .eyebrow-count {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .page-sub {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 50ch;
+  }
+
+  .post-list { display: flex; flex-direction: column; }
+
+  .empty {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+</style>

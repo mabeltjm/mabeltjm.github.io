@@ -1,0 +1,186 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  tags?: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  index?: number;
+}
+
+const { name, description, tags = [], liveUrl, githubUrl, index = 0 } = Astro.props;
+const num = String(index + 1).padStart(2, '0');
+---
+
+<article class="project-card" data-tilt>
+  <div class="card-inner">
+    <div class="card-head">
+      <span class="card-num">{num}</span>
+      <div class="card-corner-lines" aria-hidden="true">
+        <span></span><span></span>
+      </div>
+    </div>
+
+    <h2 class="project-name">{name}</h2>
+    <p class="project-desc">{description}</p>
+
+    {tags.length > 0 && (
+      <div class="project-tags">
+        {tags.map(tag => <span class="tag">{tag}</span>)}
+      </div>
+    )}
+
+    <div class="project-links">
+      {liveUrl && (
+        <a href={liveUrl} target="_blank" rel="noopener" class="proj-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+          Live
+        </a>
+      )}
+      {githubUrl && (
+        <a href={githubUrl} target="_blank" rel="noopener" class="proj-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          GitHub
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<script>
+  // 3D tilt effect on project cards
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      const el = card as HTMLElement;
+
+      el.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        el.style.transform = `perspective(600px) rotateY(${dx * 6}deg) rotateX(${-dy * 5}deg) scale(1.02)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  }
+</script>
+
+<style>
+  .project-card {
+    background: var(--bg-1);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s var(--ease-out);
+    will-change: transform;
+  }
+
+  .project-card:hover {
+    border-color: rgba(196, 84, 122, 0.35);
+    box-shadow: 0 12px 40px rgba(196, 84, 122, 0.1);
+  }
+
+  .card-inner {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    height: 100%;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--rose);
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+
+  /* Corner decoration */
+  .card-corner-lines {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+  }
+
+  .project-card:hover .card-corner-lines { opacity: 1; }
+
+  .card-corner-lines span {
+    display: block;
+    height: 1px;
+    background: var(--rose);
+    transition: width 0.3s var(--ease-out);
+  }
+
+  .card-corner-lines span:nth-child(1) { width: 16px; }
+  .card-corner-lines span:nth-child(2) { width: 8px; }
+
+  .project-card:hover .card-corner-lines span:nth-child(1) { width: 24px; }
+  .project-card:hover .card-corner-lines span:nth-child(2) { width: 14px; }
+
+  /* Content */
+  .project-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .project-desc {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--ink-2);
+    flex: 1;
+    margin: 0;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .proj-link {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-2);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    transition: color 0.2s ease;
+  }
+
+  .proj-link:hover { color: var(--rose); }
+</style>
