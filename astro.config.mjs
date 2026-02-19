@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://mabelteo.github.io',
+  site: 'https://mabeltjm.github.io',
+  base: '/mabelteo.github.io',
 });
