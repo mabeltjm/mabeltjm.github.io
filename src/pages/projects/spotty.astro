@@ -1,0 +1,382 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/case-study.css';
+
+const img = (name: string) => `/images/spotty/${name}`;
+
+const toc = [
+  ['overview', 'Overview'],
+  ['problem', 'Problem'],
+  ['research', 'Research'],
+  ['market', 'Market'],
+  ['solution', 'Solution'],
+  ['lofi', 'Lo-fi prototype'],
+  ['hifi', 'Hi-fi prototype'],
+  ['testing', 'Usability testing'],
+  ['next', 'Next steps'],
+  ['learnings', 'What I learned'],
+];
+---
+
+<Layout
+  title="Spotty: Discovery Mode — Mabel"
+  description="Case study: designing a conversational music discovery feature for Spotify."
+>
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="cs-page">
+
+    <!-- ===== Hero ===== -->
+    <header class="cs-hero">
+      <p class="cs-eyebrow">Case Study &middot; Product Design</p>
+      <div class="cs-title-row">
+        <h1>Spotty: Discovery Mode for Spotify</h1>
+        <img class="cs-mascot" src={img('spotty-head.png')} alt="Spotty, a smiling avatar with green hair, a mustache, and headphones" width="223" height="251" />
+      </div>
+      <p class="cs-lede">A conversational music companion that helps listeners find new music that matches their mood, just by saying how they feel.</p>
+
+      <dl class="cs-meta">
+        <div>
+          <dt>Role</dt>
+          <dd>Product Manager &amp; Product Designer</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>Sep &ndash; Nov 2025</dd>
+        </div>
+        <div>
+          <dt>Team</dt>
+          <dd>4 Product Managers</dd>
+        </div>
+        <div>
+          <dt>Skills</dt>
+          <dd>User Research, UI/UX Design, Product Strategy, Prototyping</dd>
+        </div>
+      </dl>
+    </header>
+
+    <div class="cs-layout">
+      <aside class="cs-toc" aria-label="Sections">
+        <p class="cs-toc-title">On this page</p>
+        <ol>
+          {toc.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}
+        </ol>
+      </aside>
+
+      <div class="cs-main">
+
+        <!-- ===== Overview ===== -->
+        <section class="cs-section" id="overview">
+          <span class="cs-label">Overview</span>
+          <h2>Music discovery, as a conversation</h2>
+          <p>My team and I designed a new Spotify feature where listeners find new music by chatting with a music companion, <strong>Spotty</strong>.</p>
+          <p class="cs-mini-label">My contributions</p>
+          <ul class="cs-chips">
+            <li>User interviews</li>
+            <li>Competitive analysis</li>
+            <li>UX flows</li>
+            <li>Interaction prototyping</li>
+          </ul>
+        </section>
+
+        <!-- ===== Problem ===== -->
+        <section class="cs-section" id="problem">
+          <span class="cs-label">The Problem</span>
+          <h2>Listeners want a companion, not a catalog</h2>
+          <p>People want music that fits their mood throughout the day, with fresh songs mixed in, without having to manage their listening.</p>
+          <div class="cs-hmw">
+            <span>How might we</span>
+            design a lightweight interaction for music lovers to explore new music that matches their mood on the go?
+          </div>
+        </section>
+
+        <!-- ===== Research ===== -->
+        <section class="cs-section" id="research">
+          <span class="cs-label">Research</span>
+          <h2>The needs behind every play</h2>
+          <p>We interviewed <strong>30+ frequent listeners</strong>. They love how personal Spotify feels, but discovery lets them down. Three insights stood out:</p>
+
+          <ul class="cs-insights">
+            <li class="is-focus">
+              <span class="cs-tag">Our focus</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <b>Smarter, contextual discovery</b>
+              Users are tired of repetitive recommendations and want fresh music that fits their current context.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <b>Music as an emotional companion</b>
+              Listeners use music to feel energized, soothed, motivated, or less alone throughout the day.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <b>Authentic social connection</b>
+              Users want to feel seen and understood through music, but current social tools feel confusing.
+            </li>
+          </ul>
+
+          <div class="cs-quotes">
+            <blockquote class="cs-quote">
+              &ldquo;It&rsquo;s disappointing when a playlist has a certain name but doesn&rsquo;t fit with what I would expect.&rdquo;
+            </blockquote>
+            <blockquote class="cs-quote">
+              &ldquo;AI-generated suggestions keep me in the same kind of loop&hellip; if I&rsquo;m craving something new.&rdquo;
+            </blockquote>
+          </div>
+        </section>
+
+        <!-- ===== Market ===== -->
+        <section class="cs-section" id="market">
+          <span class="cs-label">Market Landscape</span>
+          <h2>Spotify leads, but no one adapts</h2>
+          <div class="cs-split">
+            <p>Spotify is a <strong>leader</strong> in music streaming. Apple Music, YouTube Music, Tidal, SoundCloud, and TikTok each bring niche strengths, but they compete on <strong>access</strong>, not on adapting to the listener.</p>
+            <img src={img('market-landscape.png')} alt="Market quadrant chart. Leaders: Apple Music and Spotify. Challengers: Amazon Music and YouTube Music. Niche players: Tidal, SoundCloud, and a radio station. Visionaries: TikTok." loading="lazy" />
+          </div>
+
+          <h3>Where the market falls short</h3>
+          <ul class="cs-cards is-numbered">
+            <li><span class="n">01</span><b>One-way interactions</b>Recommendations feel transactional, not conversational, limiting emotional connection.</li>
+            <li><span class="n">02</span><b>Surface-level curation</b>Playlists and algorithms personalize by history but miss real-time mood and context.</li>
+            <li><span class="n">03</span><b>Ecosystem over empathy</b>Competitors win on integration or exclusives, not emotionally resonant discovery.</li>
+          </ul>
+
+          <div class="cs-insight">
+            <span>The opportunity: designing a friend</span>
+            A <strong>trusted companion</strong> that listens, understands, and curates with empathy, built from three ideas:
+            <ul>
+              <li>Intimate discovery experience</li>
+              <li>No more endless playlists</li>
+              <li>Small batches of songs from natural conversation</li>
+            </ul>
+            <div class="cs-insight-edge">
+              <div><b>Builds on what Spotify has</b>Existing personalization and AI R&amp;D infrastructure.</div>
+              <div><b>Grows the business</b>More engagement, loyalty, and retention through emotional connection.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Solution ===== -->
+        <section class="cs-section" id="solution">
+          <span class="cs-label">Solution</span>
+          <h2>Say how you feel, get a fresh batch of songs</h2>
+          <p><strong>Discovery Mode</strong> turns finding music into a quick back-and-forth with Spotty.</p>
+
+          <ul class="cs-cards is-two">
+            <li><b>Ask in your own words</b>&ldquo;Give me study vibes&rdquo; or &ldquo;something like Bad Bunny&rdquo; returns a curated batch of songs.</li>
+            <li><b>Refine with feedback</b>&ldquo;More upbeat&rdquo; or &ldquo;more like this&rdquo; tunes the next batch.</li>
+            <li><b>Start from a prompt</b>Mood, genre, and activity suggestions help if you&rsquo;re not sure what to say.</li>
+            <li><b>Gets smarter over time</b>Learns from your preferences, listening history, time of day, and activity.</li>
+          </ul>
+
+          <article class="cs-next-row cs-concept">
+            <div class="cs-next-text">
+              <h3>Conversational discovery that feels natural and effortless</h3>
+              <ul class="cs-ticks">
+                <li><b>Voice input</b> lets listeners express their mood naturally.</li>
+                <li><b>Play button</b> dives straight into a bite-sized list of picks.</li>
+                <li><b>Song previews</b> make it easy to sample before committing.</li>
+              </ul>
+              <p>Like having a friend queue up tracks that match your vibe.</p>
+            </div>
+            <div class="cs-phone-panel">
+              <img src={img('screens/concept.png')} alt="Early concept: Spotty responds to 'I'm walking home now and I want something retro and upbeat' with a short list of songs by Oasis, The Smiths, and Blur." loading="lazy" />
+            </div>
+          </article>
+
+          <h3>Primary user scenarios</h3>
+          <ul class="cs-scenarios">
+            <li><span class="num">01</span><br />Wants something <strong>new but familiar</strong> while getting ready, studying, commuting, or winding down.</li>
+            <li><span class="num">02</span><br />Is <strong>bored of their usual playlists</strong> and wants fresh songs that still fit their taste.</li>
+          </ul>
+        </section>
+
+        <!-- ===== Lo-fi ===== -->
+        <section class="cs-section" id="lofi">
+          <span class="cs-label">Low-Fidelity Prototype</span>
+          <h2>Introducing your new friend, &ldquo;Spotty&rdquo;</h2>
+          <p>Our first wireframes tested the core loop: Spotty greets the user, the user shares a vibe, and Spotty responds with recommendations. We used them to answer three questions: <strong>Do users resonate with the greeting? Does Spotty feel like a companion? How do users keep interacting after receiving recommendations?</strong></p>
+        </section>
+        <figure class="cs-figure">
+          <img src={img('lofi-prototype.png')} alt="Four low-fidelity wireframes showing the Discover tab: a greeting with text input, a large avatar face above a recommendation carousel, the avatar reacting, and a refined results view, annotated with the research questions." loading="lazy" />
+          <figcaption>Lo-fi wireframes, annotated with the questions each screen was designed to test.</figcaption>
+        </figure>
+
+        <!-- ===== Hi-fi ===== -->
+        <section class="cs-section" id="hifi">
+          <span class="cs-label">High-Fidelity Prototype</span>
+          <h2>Refining Discovery Mode</h2>
+          <p>Moving to high fidelity, we made three key changes based on what we learned from the lo-fi round:</p>
+          <ul class="cs-next">
+            <li><b>Reframed the greeting</b>&ldquo;What are you feeling right now?&rdquo; is easier to answer than &ldquo;What&rsquo;s your vibe today?&rdquo;</li>
+            <li><b>Added mood options</b>Tappable suggestions like &ldquo;Something mellow to help me unwind and focus&rdquo; reduce cognitive load.</li>
+            <li><b>Made the avatar smaller and less distracting</b>Spotty stays present as a companion while the music takes center stage.</li>
+          </ul>
+        </section>
+        <figure class="cs-figure">
+          <img src={img('hifi-prototype.png')} alt="High-fidelity prototype: the greeting screen with mood suggestion chips and keyboard, and the results screen where Spotty responds to 'I want songs that will get me energized for a workout' with track cards." loading="lazy" />
+          <figcaption>Hi-fi screens: the greeting with mood suggestions, and Spotty&rsquo;s response with a batch of recommendations.</figcaption>
+        </figure>
+
+        <!-- ===== Testing ===== -->
+        <section class="cs-section" id="testing">
+          <span class="cs-label">Usability Testing</span>
+          <h2>Experiencing the prototype</h2>
+          <p>We tested the hi-fi prototype with <strong>8 users</strong> across four tasks.</p>
+
+          <div class="cs-task-cards">
+            <article class="cs-task">
+              <div class="cs-phone-panel">
+                <img src={img('screens/task1.png')} alt="Spotify Home tab with a green Spotty widget asking 'Hey Anna, what are you feeling right now?' with an 'I am feeling...' input." loading="lazy" />
+              </div>
+              <div class="cs-task-body">
+                <div class="task">Task 1</div>
+                <h3>Finding the entry point &amp; first impressions of Spotty</h3>
+                <div class="cs-result">
+                  <span class="icon" aria-hidden="true">&#x2713;</span>
+                  <p><span class="num">6/8</span> users identified the widget quickly.</p>
+                </div>
+                <div class="cs-result is-neg">
+                  <span class="icon" aria-hidden="true">!</span>
+                  <p>While some appreciated the friendly visual, others found it <strong>irrelevant</strong>, unclear, or visually off-putting.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="cs-task">
+              <div class="cs-phone-panel">
+                <img src={img('screens/task2.png')} alt="Discovery Mode greeting: 'Hey Anna, what are you feeling right now?' with mood suggestion chips above the keyboard." loading="lazy" />
+              </div>
+              <div class="cs-task-body">
+                <div class="task">Task 2</div>
+                <h3>Finding music by expressing a mood</h3>
+                <div class="cs-result">
+                  <span class="icon" aria-hidden="true">&#x2713;</span>
+                  <p><span class="num">8/8</span> users completed the task successfully.</p>
+                </div>
+                <div class="cs-result is-neg">
+                  <span class="icon" aria-hidden="true">!</span>
+                  <p>Lack of guidance made users unsure what kinds of freeform input would be understood.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="cs-task">
+              <div class="cs-phone-panel">
+                <img src={img('screens/task3.png')} alt="Spotty's response to 'I want something mellow to help me unwind and focus', showing recommended tracks like Best Part by Daniel Caesar." loading="lazy" />
+              </div>
+              <div class="cs-task-body">
+                <div class="task">Task 3</div>
+                <h3>Getting recommendations from mood input</h3>
+                <div class="cs-result is-mixed">
+                  <span class="icon" aria-hidden="true">?</span>
+                  <p>Users expressed doubt about how well the recommendations aligned with their taste.</p>
+                </div>
+                <div class="cs-result is-neg">
+                  <span class="icon" aria-hidden="true">!</span>
+                  <p><span class="num">7/8</span> users were disappointed that only three songs were recommended.</p>
+                </div>
+              </div>
+            </article>
+            <article class="cs-task">
+              <div class="cs-phone-panel">
+                <img src={img('screens/task4.png')} alt="Follow-up in Discovery Mode: the user says 'I didn't really like these songs. I want new songs that are more energizing,' and Spotty replies with three new workout tracks like New York 93 by Surf Curse." loading="lazy" />
+              </div>
+              <div class="cs-task-body">
+                <div class="task">Task 4</div>
+                <h3>Refining recommendations with follow-up prompts</h3>
+                <div class="cs-result">
+                  <span class="icon" aria-hidden="true">&#x2713;</span>
+                  <p><span class="num">8/8</span> users completed the task and liked being able to give Spotty feedback.</p>
+                </div>
+                <div class="cs-result is-neg">
+                  <span class="icon" aria-hidden="true">!</span>
+                  <p><span class="num">6/8</span> users felt Spotty&rsquo;s smaller presence reduced the sense of companionship.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== Next steps ===== -->
+        <section class="cs-section" id="next">
+          <span class="cs-label">Where We Go From Here</span>
+          <h2>Key actions driven by what we learned</h2>
+
+          <div class="cs-next-rows">
+            <article class="cs-next-row">
+              <div class="cs-next-text">
+                <div class="n">01</div>
+                <h3>Expand recommendations &amp; auto-play</h3>
+                <p>Increase batches from 3 to <strong>5&ndash;8 songs</strong> and <strong>auto-play the first track</strong> to boost discovery and immersion.</p>
+              </div>
+              <div class="cs-phone-panel is-screen">
+                <img src={img('screens/next1.png')} alt="Results screen with a now-playing bar at the bottom auto-playing Best Part by Daniel Caesar." loading="lazy" />
+              </div>
+            </article>
+
+            <article class="cs-next-row">
+              <div class="cs-next-text">
+                <div class="n">02</div>
+                <h3>Enable avatar customization</h3>
+                <p>Let users <strong>personalize Spotty&rsquo;s appearance</strong> to strengthen identity, connection, and emotional investment.</p>
+              </div>
+              <div class="cs-phone-panel is-screen">
+                <img src={img('screens/next2.png')} alt="Avatar customization screen with tabs for skin, hairstyle, and brows, a color palette, and hairstyle options." loading="lazy" />
+              </div>
+            </article>
+
+            <article class="cs-next-row">
+              <div class="cs-next-text">
+                <div class="n">03</div>
+                <h3>Introduce rotating prompt examples</h3>
+                <p>Provide playful, <strong>rotating prompt suggestions</strong> during early sessions to make prompting intuitive and less intimidating.</p>
+              </div>
+              <div class="cs-phone-panel is-screen">
+                <img src={img('screens/next3a.png')} alt="Prompt suggestions: 'Some Indie R&B for a nighttime unwind' and 'Some lofi ghibli music to help me focus'." loading="lazy" />
+                <img src={img('screens/next3b.png')} alt="Different prompt suggestions: 'Late-night k-ballad for quiet reflection' and 'Some upbeat Taylor Swift to energize me for the day'." loading="lazy" />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== Learnings ===== -->
+        <section class="cs-section" id="learnings">
+          <span class="cs-label">Reflection</span>
+          <h2>What I learned</h2>
+          <div class="cs-learnings">
+            <div class="cs-learning">
+              <h3>Designing with AI opened up a new way of thinking</h3>
+              <p>This was my first time designing a product meant to be built around AI, and I had a lot of fun with it. Designing for a conversation instead of a fixed flow meant thinking about what users might say, how the system should respond, and how to build trust along the way.</p>
+              <p>With more time and expertise, I&rsquo;d love to go deeper into how AI can tailor recommendations to each listener, making better use of the details Spotify already has, like listening history, habits, and context, so the experience feels even more personal.</p>
+            </div>
+            <div class="cs-learning">
+              <h3>The best ideas are built together</h3>
+              <p>Brainstorming with several people brought perspectives I wouldn&rsquo;t have reached on my own. Hearing how others think broadened my view, and it also showed me how ideas get better when they&rsquo;re shared: one person&rsquo;s idea becomes a starting point that someone else can build on.</p>
+              <p>Working toward the same goal, we could take each other&rsquo;s ideas further than any of us would have alone.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Highlight the section currently in view in the side nav
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.cs-toc a'));
+    const sections = links.map(a => document.querySelector<HTMLElement>(a.getAttribute('href')!));
+    function update() {
+      const line = window.innerHeight * 0.35;
+      let current = 0;
+      sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= line) current = i; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = sections.length - 1;
+      links.forEach((a, i) => a.classList.toggle('is-active', i === current));
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  </script>
+</Layout>

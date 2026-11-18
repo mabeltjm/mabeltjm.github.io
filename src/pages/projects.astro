@@ -4,6 +4,12 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 const projects = [
   {
+    name: 'Spotty: Discovery Mode for Spotify',
+    description: 'A conversational music companion that recommends new songs based on how you feel. Product management, UX research, and prototyping.',
+    tags: ['Product Design', 'UX Research', 'AI'],
+    caseStudyUrl: '/projects/spotty',
+  },
+  {
     name: 'This Website',
     description: 'Personal site and blog built with Astro 5. Content collections, editorial design, zero JS frameworks.',
     tags: ['Astro', 'TypeScript', 'CSS'],
@@ -64,6 +70,7 @@ const projects = [
           description={project.description}
           tags={project.tags}
           liveUrl={project.liveUrl}
+          caseStudyUrl={project.caseStudyUrl}
           githubUrl={project.githubUrl}
           index={i}
         />

@@ -1,19 +1,19 @@
 /* ============================================
-   DESIGN TOKENS — Editorial Feminine
+   DESIGN TOKENS — Clean white
    ============================================ */
 :root {
-  --bg:          #F4F0E9;
-  --bg-1:        #EDE8DF;
-  --bg-2:        #E5DDD3;
-  --ink:         #0E0B08;
-  --ink-2:       #6B5E52;
-  --ink-3:       #BFB5A8;
+  --bg:          #FFFFFF;
+  --bg-1:        #F7F7F8;
+  --bg-2:        #EFEFF1;
+  --ink:         #16181D;
+  --ink-2:       #5A5F69;
+  --ink-3:       #A3A8B1;
   --rose:        #C4547A;
   --rose-soft:   #EDD8E3;
   --rose-tint:   rgba(196, 84, 122, 0.07);
-  --gold:        #9A7A5A;
-  --border:      #D8D1C5;
-  --border-soft: #E8E2DA;
+  --gold:        #7A808B;
+  --border:      #E2E4E8;
+  --border-soft: #ECEDF0;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-ui:      'DM Sans', system-ui, sans-serif;

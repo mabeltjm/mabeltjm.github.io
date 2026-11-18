@@ -4,11 +4,12 @@ interface Props {
   description: string;
   tags?: string[];
   liveUrl?: string;
+  caseStudyUrl?: string;
   githubUrl?: string;
   index?: number;
 }
 
-const { name, description, tags = [], liveUrl, githubUrl, index = 0 } = Astro.props;
+const { name, description, tags = [], liveUrl, caseStudyUrl, githubUrl, index = 0 } = Astro.props;
 const num = String(index + 1).padStart(2, '0');
 ---
 
@@ -31,6 +32,14 @@ const num = String(index + 1).padStart(2, '0');
     )}
 
     <div class="project-links">
+      {caseStudyUrl && (
+        <a href={caseStudyUrl} class="proj-link proj-link--primary">
+          Read case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+      )}
       {liveUrl && (
         <a href={liveUrl} target="_blank" rel="noopener" class="proj-link">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -183,4 +192,6 @@ const num = String(index + 1).padStart(2, '0');
   }
 
   .proj-link:hover { color: var(--rose); }
+
+  .proj-link--primary { color: var(--rose); font-weight: 500; }
 </style>
