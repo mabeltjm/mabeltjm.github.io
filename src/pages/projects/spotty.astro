@@ -32,9 +32,9 @@ const toc = [
 
     <!-- ===== Hero ===== -->
     <header class="cs-hero">
-      <p class="cs-eyebrow">Case Study &middot; Product Design</p>
+      <p class="cs-eyebrow">Case Study &middot; Spotty: Discovery Mode for Spotify</p>
       <div class="cs-title-row">
-        <h1>Spotty: Discovery Mode for Spotify</h1>
+        <h1>Helping listeners discover new music <span class="cs-scribble">through conversation.</span></h1>
         <img class="cs-mascot" src={img('spotty-head.png')} alt="Spotty, a smiling avatar with green hair, a mustache, and headphones" width="223" height="251" />
       </div>
       <p class="cs-lede">A conversational music companion that helps listeners find new music that matches their mood, just by saying how they feel.</p>
@@ -72,15 +72,35 @@ const toc = [
         <!-- ===== Overview ===== -->
         <section class="cs-section" id="overview">
           <span class="cs-label">Overview</span>
-          <h2>Music discovery, as a conversation</h2>
-          <p>My team and I designed a new Spotify feature where listeners find new music by chatting with a music companion, <strong>Spotty</strong>.</p>
-          <p class="cs-mini-label">My contributions</p>
-          <ul class="cs-chips">
-            <li>User interviews</li>
-            <li>Competitive analysis</li>
-            <li>UX flows</li>
-            <li>Interaction prototyping</li>
-          </ul>
+          <h2 class="cs-hook">Spotify knows what you play. It doesn&rsquo;t know how you feel.</h2>
+
+          <div class="cs-compare">
+            <div class="cs-compare-card">
+              <span class="cs-compare-tag">Today</span>
+              <p>Playlists and algorithms recommend music based on what you&rsquo;ve already played.</p>
+            </div>
+            <div class="cs-compare-card">
+              <span class="cs-compare-tag">The gap</span>
+              <p>Picks loop the same sound and miss how you feel right now.</p>
+            </div>
+            <div class="cs-compare-card is-new">
+              <span class="cs-compare-tag">Discovery Mode</span>
+              <p>Tell Spotty how you feel and get a fresh batch of songs, refined through conversation.</p>
+            </div>
+          </div>
+
+          <p class="cs-summary">Our team of 4 PMs designed <strong>Discovery Mode</strong>, a conversational music companion inside Spotify. I worked on user research, competitive analysis, UX flows, and prototyping.</p>
+
+          <div class="cs-stat-hero">
+            <div class="cs-people" role="img" aria-label="8 out of 8 people highlighted">
+              <svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg><svg viewBox="0 0 24 40" aria-hidden="true"><circle cx="12" cy="6" r="5.5"/><path d="M4 16a8 8 0 0 1 16 0v14a3 3 0 0 1-3 3v4a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-4a3 3 0 0 1-3-3Z"/></svg>
+            </div>
+            <p class="cs-stat-line"><strong>8 of 8</strong> testers found new music just by describing their mood.</p>
+          </div>
+
+          <div class="cs-key-insight">
+            <strong>Key insight:</strong> Listeners don&rsquo;t lack music. They lack a way to say what they want <em>right now</em>.
+          </div>
         </section>
 
         <!-- ===== Problem ===== -->

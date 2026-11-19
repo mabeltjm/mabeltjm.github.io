@@ -50,9 +50,32 @@
   display: flex;
   align-items: center;
   gap: clamp(16px, 3vw, 40px);
-  margin: 0 0 20px;
+  margin: 0 0 32px;
 }
-.cs-title-row h1 { margin: 0; }
+.cs-title-row h1 {
+  margin: 0;
+  flex: 1;
+  max-width: none;
+  text-wrap: balance;
+  font-size: clamp(34px, 4.6vw, 56px);
+  line-height: 1.15;
+}
+
+/* hand-drawn double underline */
+.cs-scribble {
+  position: relative;
+  white-space: nowrap;
+}
+.cs-scribble::after {
+  content: "";
+  position: absolute;
+  left: -1%;
+  right: -3%;
+  bottom: -0.2em;
+  height: 0.28em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 24' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 90 4, 250 3, 397 7' fill='none' stroke='%231a9e50' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M18 19 C 120 14, 270 14, 384 17' fill='none' stroke='%231a9e50' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  pointer-events: none;
+}
 .cs-mascot {
   flex: none;
   width: clamp(72px, 11vw, 150px);
@@ -228,6 +251,74 @@ blockquote.cs-quote cite {
   color: var(--ink-soft);
 }
 .cs-competitors b { display: block; color: var(--ink); margin-bottom: 4px; }
+
+/* ---------- Overview hook ---------- */
+.cs-main #overview { max-width: none; }
+.cs-hook {
+  font-size: clamp(28px, 3.4vw, 40px) !important;
+  line-height: 1.2 !important;
+  max-width: 22ch;
+  margin-bottom: 28px !important;
+}
+.cs-compare {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.cs-compare-card {
+  background: var(--bg-soft);
+  border-radius: 16px;
+  padding: 24px 26px 28px;
+}
+.cs-compare-card.is-new { background: var(--accent-soft); }
+.cs-compare-tag {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+}
+.cs-compare-card.is-new .cs-compare-tag { color: var(--accent); }
+.cs-compare-card p { margin: 0 !important; font-size: 18px; line-height: 1.5; color: var(--ink) !important; }
+.cs-summary { margin: 24px 0 0 !important; max-width: var(--text-width); }
+
+.cs-stat-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 48px;
+}
+.cs-people {
+  display: grid;
+  grid-template-columns: repeat(4, 34px);
+  gap: 14px 16px;
+}
+.cs-people svg { width: 34px; height: 56px; fill: var(--accent); }
+.cs-stat-line {
+  margin: 0 !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink) !important;
+  max-width: 18ch;
+}
+.cs-stat-line strong { color: var(--accent); }
+.cs-key-insight {
+  margin-top: 40px;
+  padding: 24px 28px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  background: var(--bg-soft);
+  font-size: clamp(19px, 2vw, 23px);
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cs-key-insight strong { color: var(--accent); }
 
 /* contribution chips */
 .cs-mini-label {
@@ -716,6 +807,7 @@ blockquote.cs-quote cite {
   .cs-layout { display: block; padding: 0; }
   .cs-toc { display: none; }
   .cs-main .cs-section { margin: 0 auto; padding: 72px 24px 0; }
+  .cs-main #overview,
   .cs-main #learnings,
   .cs-main #testing,
   .cs-main #metrics,
@@ -732,11 +824,19 @@ blockquote.cs-quote cite {
   .cs-next-text { padding: 26px 24px; }
   .cs-next-row .cs-phone-panel img { height: 380px; }
   .cs-page { font-size: 17px; }
+  .cs-title-row { flex-direction: column-reverse; align-items: flex-start; gap: 12px; }
+  .cs-mascot { width: 72px; }
+  .cs-stat-hero { grid-template-columns: 1fr; gap: 20px; margin-top: 36px; }
+  .cs-people { grid-template-columns: repeat(8, 26px); gap: 8px; }
+  .cs-people svg { width: 26px; height: 43px; }
+  .cs-main #overview { max-width: var(--wide-width); }
+  .cs-scribble { white-space: normal; }
   .cs-hero { padding: 56px 20px 40px; }
   .cs-meta { grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
   .cs-main .cs-section { padding: 56px 20px 0; }
   .cs-section h2 { font-size: 26px; }
   .cs-competitors,
+  .cs-compare,
   .cs-bet,
   .cs-metrics,
   .cs-insights,
