@@ -1,17 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import PostCard from '../components/PostCard.astro';
 
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const recentPosts = allPosts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
 ---
 
 <Layout
-  title="Mabel — Developer & Student"
-  description="Hi, I'm Mabel. I build things with code and write about what I learn."
+  title="Mabel — Product Manager"
+  description="Hi, I'm Mabel, a product manager with 5 years of experience across the public sector and global enterprise."
 >
   <!-- Hero -->
   <section class="hero">
@@ -19,20 +13,26 @@ const recentPosts = allPosts
 
       <div class="hero-eyebrow reveal">
         <span class="eyebrow-line"></span>
-        <span class="eyebrow-text">developer · student · berkeley, ca</span>
+        <span class="eyebrow-text">product manager · student · berkeley, ca</span>
       </div>
 
       <div class="hero-title-wrap">
         <h1 class="hero-title reveal reveal-d1">
           <em>Mabel.</em>
         </h1>
+        <img
+          class="hero-portrait reveal reveal-d2"
+          src="/images/mabel-illustration.png"
+          alt="Illustration of Mabel smiling, with long hair and a black t-shirt"
+        />
       </div>
 
       <div class="hero-below reveal reveal-d2">
         <div class="hero-bio">
           <p>
-            I build things with code, study data and information systems,
-            and write about what I learn along the way.
+            I'm a product manager with 5 years of experience across the
+            public sector and global enterprise. I love turning ideas into
+            digital experiences that make people's lives easier.
           </p>
           <div class="hero-actions">
             <a href="/projects" class="btn btn-primary"><span>View Projects</span></a>
@@ -50,8 +50,8 @@ const recentPosts = allPosts
             <dd>UC Berkeley, I School</dd>
           </div>
           <div class="stat-row">
-            <dt>Stack</dt>
-            <dd>Python · JS · SQL</dd>
+            <dt>Experience</dt>
+            <dd>5 years · Public sector &amp; enterprise</dd>
           </div>
           <div class="stat-row">
             <dt>Status</dt>
@@ -67,39 +67,11 @@ const recentPosts = allPosts
   <div class="marquee-band" aria-hidden="true">
     <div class="marquee-track">
       {[1, 2].map(() => (
-        <span class="marquee-item">mabel <em>·</em> developer <em>·</em> student <em>·</em> berkeley, ca <em>·</em> data science <em>·</em> web <em>·</em> open to collaborate <em>·</em> 2026 <em>·</em>&nbsp;</span>
+        <span class="marquee-item">mabel <em>·</em> product manager <em>·</em> student <em>·</em> berkeley, ca <em>·</em> public sector <em>·</em> global enterprise <em>·</em> open to collaborate <em>·</em> 2026 <em>·</em>&nbsp;</span>
       ))}
     </div>
   </div>
 
-  <!-- Recent Writing -->
-  {recentPosts.length > 0 && (
-    <section class="writing">
-      <div class="container">
-        <div class="writing-header reveal">
-          <div class="section-kicker">
-            <span class="kicker-index">§ 01</span>
-            <span class="kicker-label">Recent Writing</span>
-          </div>
-          <a href="/blog" class="writing-all">All posts →</a>
-        </div>
-
-        <div class="post-list">
-          {recentPosts.map((post, i) => (
-            <div class={`reveal reveal-d${i + 1}`}>
-              <PostCard
-                title={post.data.title}
-                description={post.data.description}
-                pubDate={post.data.pubDate}
-                slug={post.slug}
-                tags={post.data.tags}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
 </Layout>
 
 <style>
@@ -136,6 +108,15 @@ const recentPosts = allPosts
     overflow: hidden;
     margin: 0 -2rem 0;
     padding: 0 2rem;
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .hero-portrait {
+    flex: none;
+    height: clamp(7.5rem, 22vw, 19rem);
+    width: auto;
   }
 
   .hero-title {
@@ -214,59 +195,6 @@ const recentPosts = allPosts
   .stat-available {
     color: var(--rose) !important;
     font-style: italic;
-  }
-
-  /* ── Writing ──────────────────────────────── */
-  .writing {
-    padding: 4rem 0 5rem;
-  }
-
-  .writing-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-soft);
-    margin-bottom: 0;
-    gap: 1rem;
-  }
-
-  .section-kicker {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .kicker-index {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    color: var(--rose);
-  }
-
-  .kicker-label {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-  }
-
-  .writing-all {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    color: var(--ink-2);
-    text-decoration: none;
-    white-space: nowrap;
-    transition: color 0.2s ease;
-  }
-
-  .writing-all:hover { color: var(--rose); }
-
-  .post-list {
-    display: flex;
-    flex-direction: column;
   }
 
   /* ── Responsive ──────────────────────────── */
