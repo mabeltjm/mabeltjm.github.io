@@ -135,6 +135,7 @@
 .cs-main .cs-figure { max-width: none; padding: 0; }
 .cs-main #learnings,
 .cs-main #testing,
+.cs-main #metrics,
 .cs-main #next { max-width: none; }
 .cs-main #testing > p,
 .cs-main #next > p { max-width: var(--text-width); }
@@ -626,6 +627,75 @@ blockquote.cs-quote cite {
 .cs-next-row .cs-phone-panel { border-radius: 0; padding-top: 32px; }
 .cs-next-row .cs-phone-panel img { height: 400px; }
 
+/* ---------- Product rationale ---------- */
+.cs-bet {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.cs-bet-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+.cs-bet-card h3 {
+  margin: 0 0 12px !important;
+  font-size: 17px !important;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #d4f0e0, #d9eef6);
+  color: var(--ink);
+}
+.cs-bet-card ul { margin: 0; padding-left: 18px; }
+.cs-bet-card li { font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 6px; }
+.cs-bet-card li:last-child { margin-bottom: 0; }
+
+/* ---------- Success metrics ---------- */
+.cs-metric-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.cs-northstar {
+  margin-top: 28px;
+  padding: 28px 30px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #d4f0e0 0%, #e4f3f8 100%);
+}
+.cs-northstar .cs-metric-tag {
+  color: #fff;
+  background: var(--accent);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.cs-northstar-metric {
+  margin: 0 !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink) !important;
+  max-width: 34ch;
+}
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+.cs-metric {
+  border-radius: 14px;
+  padding: 20px 22px;
+  background: var(--bg-soft);
+}
+.cs-metric p { margin: 0 !important; font-size: 15px; line-height: 1.55; }
+
 /* ---------- Learnings ---------- */
 .cs-learnings {
   display: grid;
@@ -648,6 +718,7 @@ blockquote.cs-quote cite {
   .cs-main .cs-section { margin: 0 auto; padding: 72px 24px 0; }
   .cs-main #learnings,
   .cs-main #testing,
+  .cs-main #metrics,
   .cs-main #next { max-width: var(--wide-width); }
   .cs-main .cs-figure { padding: 0 24px; }
 }
@@ -666,6 +737,8 @@ blockquote.cs-quote cite {
   .cs-main .cs-section { padding: 56px 20px 0; }
   .cs-section h2 { font-size: 26px; }
   .cs-competitors,
+  .cs-bet,
+  .cs-metrics,
   .cs-insights,
   .cs-split,
   .cs-insight-edge,

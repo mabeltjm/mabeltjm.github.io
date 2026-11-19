@@ -13,8 +13,8 @@ function isActive(href: string) {
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="logo" aria-label="Home">
-      <em>mabel</em><span class="logo-mark">*</span>
+    <a href="/" class="logo" aria-label="Mabel Teo, home">
+      <img src="/logo.png" alt="mabel teo." width="84" height="40" />
     </a>
 
     <nav class="nav" aria-label="Main navigation">
@@ -56,30 +56,19 @@ function isActive(href: string) {
 
   /* Logo */
   .logo {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: var(--ink);
-    letter-spacing: 0.01em;
-    text-decoration: none;
     display: flex;
-    align-items: baseline;
-    gap: 0.05em;
-    transition: color 0.2s ease;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
   }
 
-  .logo em {
-    font-style: italic;
-    font-weight: 300;
+  .logo img {
+    height: 40px;
+    width: auto;
+    display: block;
   }
 
-  .logo-mark {
-    color: var(--rose);
-    font-style: normal;
-    font-size: 1.1rem;
-  }
-
-  .logo:hover { color: var(--rose); }
+  .logo:hover { opacity: 0.6; }
 
   /* Nav */
   .nav {

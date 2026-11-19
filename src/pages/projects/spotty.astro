@@ -10,9 +10,11 @@ const toc = [
   ['research', 'Research'],
   ['market', 'Market'],
   ['solution', 'Solution'],
+  ['bet', 'Why this bet'],
   ['lofi', 'Lo-fi prototype'],
   ['hifi', 'Hi-fi prototype'],
   ['testing', 'Usability testing'],
+  ['metrics', 'Success metrics'],
   ['next', 'Next steps'],
   ['learnings', 'What I learned'],
 ];
@@ -193,6 +195,41 @@ const toc = [
           </ul>
         </section>
 
+        <!-- ===== Why it's the right bet ===== -->
+        <section class="cs-section" id="bet">
+          <span class="cs-label">Product Rationale</span>
+          <h2>Why Discovery Mode is the right bet</h2>
+          <div class="cs-bet">
+            <div class="cs-bet-card">
+              <h3>User adoption &amp; desire</h3>
+              <ul>
+                <li>Fulfills an unmet emotional need: conversational, empathetic, mood-based suggestions feel <strong>novel and desirable</strong>.</li>
+              </ul>
+            </div>
+            <div class="cs-bet-card">
+              <h3>Ease of use</h3>
+              <ul>
+                <li>Mimics natural chat, so there&rsquo;s <strong>no new learning curve</strong>.</li>
+                <li>3&ndash;5 songs per interaction keeps choices manageable.</li>
+              </ul>
+            </div>
+            <div class="cs-bet-card">
+              <h3>Tech &amp; resources</h3>
+              <ul>
+                <li>Built on Spotify&rsquo;s <strong>existing recommendation and voice/NLP infrastructure</strong>.</li>
+                <li>MVP is a conversational prototype with limited new architecture.</li>
+              </ul>
+            </div>
+            <div class="cs-bet-card">
+              <h3>Strategic fit</h3>
+              <ul>
+                <li>Creates <strong>emotional stickiness</strong>.</li>
+                <li>Enables two-way emotional discovery competitors don&rsquo;t offer.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <!-- ===== Lo-fi ===== -->
         <section class="cs-section" id="lofi">
           <span class="cs-label">Low-Fidelity Prototype</span>
@@ -297,6 +334,30 @@ const toc = [
                 </div>
               </div>
             </article>
+          </div>
+        </section>
+
+        <!-- ===== Success metrics ===== -->
+        <section class="cs-section" id="metrics">
+          <span class="cs-label">Success Metrics</span>
+          <h2>Measuring the impact of Discovery Mode</h2>
+          <div class="cs-northstar">
+            <span class="cs-metric-tag">North Star</span>
+            <p class="cs-northstar-metric">% of weekly active users who start <strong>at least one Discovery Mode session</strong> per week</p>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <span class="cs-metric-tag">Meaningful engagement</span>
+              <p><strong>Average session duration</strong> in Discovery Mode, plus average <strong>time spent per recommendation card</strong></p>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric-tag">Retention &amp; viability</span>
+              <p>Change in <strong>satisfaction scores</strong> among users who use Discovery Mode at least 3 times a month</p>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric-tag">Bottom of the funnel</span>
+              <p>Number and % of <strong>total song saves</strong> that happen within Discovery Mode</p>
+            </div>
           </div>
         </section>
 
